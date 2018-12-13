@@ -2,13 +2,13 @@
 
 def call(String buildResult) {
 
-  if ( buildResult == "SUCCESS" ) {
+  if ( buildResult == "Success" ) {
     color = "good"
   }
-  else if( buildResult == "FAILURE" ) { 
+  else if( buildResult == "Failure" ) { 
     color = "danger"
   }
-  else if( buildResult == "UNSTABLE" ) { 
+  else if( buildResult == "Unstable" ) { 
     color = "warning"
   }
   else {
