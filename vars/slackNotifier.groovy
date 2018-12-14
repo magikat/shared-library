@@ -20,6 +20,6 @@ def call(String buildResult) {
   }
 
 // Send notifications
-  slackSend color: "${color}", message: "${env.JOB_NAME} on ${branch} branch - ${status} after ${currentBuild.durationString} (<${env.RUN_DISPLAY_URL}|Open>) (<${env.RUN_CHANGES_DISPLAY_URL}|  Changes>)"
+  slackSend color: "${color}", message: "${env.JOB_NAME} on ${env.BRANCH_NAME} branch - ${status} after ${currentBuild.durationString} (<${env.RUN_DISPLAY_URL}|Open>) (<${env.RUN_CHANGES_DISPLAY_URL}|  Changes>)"
 
 }
