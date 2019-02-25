@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
-def call(String buildResult) {
-
+def call(String buildResult,String branch=null) {
+  
   if ( buildResult == "SUCCESS" ) {
     color = "good"
     status = "Success"
@@ -19,8 +19,8 @@ def call(String buildResult) {
     status = "Unknown"
   }
   
-  if ( ${env.gitlabBranch} != null ) {
-    jobBranch = "${env.gitlabBranch}"
+  if ( branch != null ) {
+    jobBranch = "${branch}"
   }
   else {
     jobBranch = "${env.BRANCH_NAME}"
