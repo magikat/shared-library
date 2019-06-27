@@ -6,7 +6,7 @@ def call() {
         image_only = false
     }
 
-    build job: 'docker_image', propagate: false, wait: false, parameters: [[$class: 'StringParameterValue', name: 'project', value: "${env.JOB_NAME}"],[$class: 'StringParameterValue', name: 'version', value: "${version}"],[$class: 'StringParameterValue', name: 'projectBranch', value: "${env.projectBranch}"]]
+    build job: 'docker_image', propagate: false, wait: true, parameters: [[$class: 'StringParameterValue', name: 'project', value: "${env.JOB_NAME}"],[$class: 'StringParameterValue', name: 'version', value: "${version}"],[$class: 'StringParameterValue', name: 'projectBranch', value: "${env.projectBranch}"]]
     script {
         if ("${env.projectBranch}" == 'master' && image_only == false) {
             archiveArtifacts artifacts: 'dist/**/*', onlyIfSuccessful: true
