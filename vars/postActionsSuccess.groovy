@@ -1,9 +1,8 @@
 def call() {
 
     String version = evaluate("version")
-    boolean image_only = evaluate("image_only")
     
-    if ( image_only == null ) {
+    if ( env.image_only == null ) {
         image_only = false
     }
 
